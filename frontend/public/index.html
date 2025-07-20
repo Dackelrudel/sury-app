@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landingpage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-secondary { font-family: 'Playfair Display', serif; }
+        html.dark #dark-toggle span { transform: translateX(1.25rem); }
+</style>
+</head>
+<body class="bg-[#FAF8F2] text-[#2E2E2E] dark:bg-[#2E2E2E] dark:text-[#FAF8F2]">
+    <header class="flex items-center justify-between p-4">
+        <div class="w-24 h-10 border flex items-center justify-center font-bold" aria-label="Logo">Logo</div>
+        <div class="flex items-center space-x-4">
+            <button aria-label="Darkmode umschalten" id="dark-toggle" class="relative w-12 h-6 rounded-full bg-[#B5C7A6]" hx-post="/toggle-darkmode" hx-swap="none" hx-on="click: document.documentElement.classList.toggle('dark')">
+                <span class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-transform"></span>
+            </button>
+            <a href="/login" class="px-4 py-2 rounded text-white" style="background-color:#FF6B2C;">Login</a>
+        </div>
+    </header>
+    <main>
+        <div class="text-center mt-8">
+            <h1 class="text-4xl md:text-5xl font-secondary font-bold">Willkommen</h1>
+            <p class="font-secondary mt-2 text-lg">Ein kleiner Untertitel</p>
+        </div>
+        <section class="flex justify-center mt-10">
+            <div class="w-full max-w-xl h-64 bg-gray-300 flex items-center justify-center" role="img" aria-label="Bild Dummy">
+                <span>Bild&nbsp;Dummy</span>
+            </div>
+        </section>
+    </main>
+    <footer class="text-center py-6 mt-10">
+        Footer
+    </footer>
+</body>
+</html>
