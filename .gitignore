@@ -1,1 +1,16 @@
 node_modules/
+backend/target/
+**/*.rs.bk
+backend/.cargo/
+backend/Cargo.lock
+
+*.log
+*.tmp
+
+.env
+.env.*
+
+/coverage/
+*.profraw
+*.profdata
+

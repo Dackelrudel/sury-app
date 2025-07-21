@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS texts (
+  id TEXT PRIMARY KEY,
+  content TEXT NOT NULL,
+  created_at TEXT NOT NULL
+);
