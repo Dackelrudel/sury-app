@@ -25,11 +25,19 @@ struct Text {
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
+    let db_path = std::env::current_dir()?.join("backend").join("sury.db");
+    let db_url = format!("sqlite://{}", db_path.display());
+
+    let init_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+    .join("sql")
+    .join("init.sql");
+
     let db = SqlitePoolOptions::new()
-        .connect("sqlite://sury.db")
+        .connect(&db_url)
         .await?;
 
-    let init_sql = fs::read_to_string("sql/init.sql")?;
+
+    let init_sql = fs::read_to_string(init_path)?;
     sqlx::query(&init_sql).execute(&db).await?;
 
     let app_state = AppState { db };
