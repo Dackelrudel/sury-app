@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+/* Variablen */
+:root {
+  --bg-color: #e9e3d4;
+  --text-color: #2E2E2E;
+  --header-bg: #e9e3d4;
+}
+
+.dark {
+  --bg-color: #2E2E2E;
+  --text-color: #e9e3d4;
+  --header-bg: #2E2E2E;
+}
+
+/* Body */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Header */
+header {
+  background-color: var(--header-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Headings */
+h1 {
+  text-align: center;
+}
+
+/* Darkmode Toggle Wrapper */
+.wrapper{
+  width: 130px;
+  height:50px;
+}
+
+/* Toggle Switch */
+.switch{
+  position: relative;
+  width: 130px;
+  height: 50px;
+  margin: 0px;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image:url('S:\Dokumente\Sury_app\sury-app\frontend\assets\darkmode.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 25px;
+  box-shadow: inset 0px 0px 2px rgba(255,255,255,.7);
+  transition: background-image .7s ease-in-out;
+  outline: none;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.switch:checked{
+  background-image: url('S:\Dokumente\Sury_app\sury-app\frontend\assets\lightmode.png');
+  background-size: cover;
+  transition: background-image 1s ease-in-out;
+}
+
+/* Toggle Knopf */
+.switch:after{
+  content: '';
+  width: 46px;
+  height:46px;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  transform: translateX(0px);
+  animation: off .7s forwards cubic-bezier(.8, .5, .2, 1.4);
+  box-shadow: inset 5px -5px 4px rgba(53, 53, 53, 0.3);
+}
+
+@keyframes off{
+  0%{ transform: translateX(80px); width: 46px; }
+  50%{ width: 75px; border-radius: 25px; }
+  100%{ transform: translateX(0px); width: 46px; }
+}
+
+.switch:checked:after{
+  animation: on .7s forwards cubic-bezier(.8, .5, .2, 1.4);
+  box-shadow: inset -5px -5px 4px rgba(53, 53, 53, 0.3);
+}
+
+@keyframes on{
+  0%{ transform: translateX(0px); width: 46px; }
+  50%{ width: 75px; border-radius: 25px; }
+  100%{ transform: translateX(80px); width: 46px; }
+}
+
+/* Sonne (checked) */
+.switch:checked:before{
+  content: '';
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: absolute;
+  left: 15px;
+  top: 5px;
+  transform-origin: 53px 10px;
+  background-color: transparent;
+  box-shadow: 5px -1px 0px #fff;
+  filter: blur(0px);
+  animation: sun .7s forwards ease;
+}
+
+@keyframes sun{
+  0%{ transform: rotate(170deg); background-color: transparent; box-shadow: 5px -1px 0px #fff; filter: blur(0px);}
+  50%{ background-color: transparent; box-shadow: 5px -1px 0px #fff; filter: blur(0px);}
+  90%{ background-color: #f5daaa; box-shadow: 0px 0px 10px #f5deb4, 0px 0px 20px #f5deb4, 0px 0px 30px #f5deb4, inset 0px 0px 2px #efd3a3; filter: blur(1px);}
+  100%{ transform: rotate(0deg); background-color: #f5daaa; box-shadow: 0px 0px 10px #f5deb4, 0px 0px 20px #f5deb4, 0px 0px 30px #f5deb4, inset 0px 0px 2px #efd3a3; filter: blur(1px);}
+}
+
+/* Mond (unchecked) */
+.switch:before{
+  content: '';
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: absolute;
+  left: 15px;
+  top: 5px;
+  filter: blur(1px);
+  background-color: #f5daaa;
+  box-shadow: 0px 0px 10px #f5deb4, 0px 0px 20px #f5deb4, 0px 0px 30px #f5deb4, inset 0px 0px 2px #efd3a3;
+  transform-origin: 53px 10px;
+  animation: moon .7s forwards ease;
+}
+
+@keyframes moon{
+  0%{ transform: rotate(0deg); filter: blur(1px);}
+  50%{ filter: blur(1px);}
+  90%{ background-color: transparent; box-shadow: 5px -1px 0px #fff; filter: blur(0px);}
+  100%{ transform: rotate(170deg); background-color: transparent; box-shadow: 5px -1px 0px #fff; filter: blur(0px);}
+}
+
+/* Main Content – über dem Footer */
+main {
+    min-height: calc(100vh + 150px); /* genug Höhe für Scroll + Footer */
+    position: relative;
+    z-index: 1;
+    background: var(--bg-color);
+}
+
+/* Footer – fixiert und hinter dem Content */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: #6a7a5d;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+    font-size: 1.5rem;
+}

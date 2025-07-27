@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landingpage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .font-secondary { font-family: 'Playfair Display', serif; }
+    html.dark #dark-toggle span { transform: translateX(1.25rem); }
+</style>
+</head>
+<body>
+<header class="sticky top-0 z-50 flex items-center justify-between p-4 shadow-md">
+    <!-- Logo -->
+    <div class="w-24 h-10 border flex items-center justify-center font-bold" aria-label="Logo">Logo</div>
+    
+    <!-- Navigation + Toggle + Login -->
+    <div class="flex items-center gap-10">
+        <!-- Navigation -->
+        <nav>
+            <ul class="flex gap-10 text-lg font-medium">
+                <li><a href="#features" class="hover:text-orange-500 transition-colors">Features</a></li>
+                <li><a href="#preise" class="hover:text-orange-500 transition-colors">Preise</a></li>
+            </ul>
+        </nav>
+
+        <!-- Darkmode Toggle -->
+        <div class="wrapper">
+            <input type="checkbox" id="toggleDark" class="switch" />
+        </div>
+
+        <!-- Login Button -->
+        <a href="/login" class="px-4 py-2 rounded text-white" style="background-color:#FF6B2C;">Login</a>
+    </div>
+</header>
+
+<main>
+    <div class="text-center mt-8">
+        <h1 class="text-4xl md:text-5xl font-secondary font-bold">Willkommen</h1>
+        <p class="font-secondary mt-2 text-lg">Ein kleiner Untertitel</p>
+    </div>
+    <section class="flex justify-center mt-10">
+        <div class="w-full max-w-xl h-64 bg-gray-300 dark:bg-gray-700 flex items-center justify-center" role="img" aria-label="Bild Dummy">
+            <span>Bild&nbsp;Dummy</span>
+        </div>
+    </section>
+        <section class="flex justify-center mt-10">
+        <div class="w-full max-w-xl h-64 bg-gray-300 dark:bg-gray-700 flex items-center justify-center" role="img" aria-label="Bild Dummy">
+            <span>Bild&nbsp;Dummy</span>
+        </div>
+    </section>
+        <section class="flex justify-center mt-10">
+        <div class="w-full max-w-xl h-64 bg-gray-300 dark:bg-gray-700 flex items-center justify-center" role="img" aria-label="Bild Dummy">
+            <span>Bild&nbsp;Dummy</span>
+        </div>
+    </section>
+    
+</main>
+
+<footer class="text-center py-6 mt-10">
+    <p>Footer</p>
+</footer>
+
+<script type="module" src="/main.js"></script>
+</body>
+</html>
